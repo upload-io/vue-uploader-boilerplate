@@ -1,3 +1,11 @@
+<template>
+  <UploadDropzone :uploader="uploader"
+                  :options="options"
+                  :on-update="onFileUploaded"
+                  width="600px"
+                  height="375px" />
+</template>
+
 <script lang="ts">
 import { Uploader } from "uploader";
 import { UploadDropzone } from "@upload-io/vue-uploader";
@@ -33,11 +41,3 @@ export default {
   }
 };
 </script>
-
-<template>
-    <UploadDropzone :uploader="uploader"
-                    :options="options"
-                    :on-update="onFileUploaded"
-                    width="600px"
-                    height="375px" />
-</template>
