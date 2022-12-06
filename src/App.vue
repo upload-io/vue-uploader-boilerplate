@@ -31,7 +31,7 @@ export default {
     };
   },
   methods: {
-    onFileUploaded: (files: UploaderResult[]) => {
+    onFileUploaded(files: UploaderResult[]) {
       if (files.length === 0) {
         alert("No files selected.");
       } else {
