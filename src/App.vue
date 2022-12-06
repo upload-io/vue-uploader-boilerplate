@@ -1,47 +1,43 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+<script lang="ts">
+import { Uploader } from "uploader";
+import { UploadDropzone } from "@upload-io/vue-uploader";
+import type { UploaderOptions, UploaderResult } from "uploader";
+
+// One instance per app.
+const uploader = Uploader({ apiKey: "free" });
+
+// See "customization" below.
+const options: UploaderOptions = {
+  multi: true
+};
+
+export default {
+  name: "App",
+  components: {
+    UploadDropzone
+  },
+  data() {
+    return {
+      uploader,
+      options
+    };
+  },
+  methods: {
+    onFileUploaded: (files: UploaderResult[]) => {
+      if (files.length === 0) {
+        alert("No files selected.");
+      } else {
+        alert(files.map(f => f.fileUrl).join("\n"));
+      }
+    }
+  }
+};
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+    <UploadDropzone :uploader="uploader"
+                    :options="options"
+                    :on-update="onFileUploaded"
+                    width="600px"
+                    height="375px" />
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
