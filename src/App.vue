@@ -14,7 +14,6 @@ import type { UploadWidgetConfig, UploadWidgetResult } from "uploader";
 // One instance per app.
 const uploader = Uploader({ apiKey: "free" });
 
-// See "customization" below.
 const options: UploadWidgetConfig = {
   multi: true
 };
