@@ -9,3 +9,10 @@ Please see the commit history (the initial commit a boilerplate Vue repo, and su
 Enjoy!
 
 - The Upload Team
+
+## Usage
+
+```
+npm ci
+npm run dev
+```

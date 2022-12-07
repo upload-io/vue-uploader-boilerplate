@@ -10,7 +10,7 @@
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "@upload-io/vue-uploader": "^2.2.0",
+    "@upload-io/vue-uploader": "^3.0.1",
     "vue": "^3.2.45"
   },
   "devDependencies": {

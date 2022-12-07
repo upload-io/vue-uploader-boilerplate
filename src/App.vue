@@ -9,13 +9,13 @@
 <script lang="ts">
 import { Uploader } from "uploader";
 import { UploadDropzone } from "@upload-io/vue-uploader";
-import type { UploaderOptions, UploaderResult } from "uploader";
+import type { UploadWidgetConfig, UploadWidgetResult } from "uploader";
 
 // One instance per app.
 const uploader = Uploader({ apiKey: "free" });
 
 // See "customization" below.
-const options: UploaderOptions = {
+const options: UploadWidgetConfig = {
   multi: true
 };
 
@@ -31,7 +31,7 @@ export default {
     };
   },
   methods: {
-    onFileUploaded(files: UploaderResult[]) {
+    onFileUploaded(files: UploadWidgetResult[]) {
       if (files.length === 0) {
         alert("No files selected.");
       } else {
